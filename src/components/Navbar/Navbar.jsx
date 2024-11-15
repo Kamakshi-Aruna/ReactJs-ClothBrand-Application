@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom'; 
 import './Navbar.css';
 
-const Navbar = () => {
-  const [activeLink, setActiveLink] = useState('home');
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+  const navigate = useNavigate(); // Get the navigate function
 
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
+  // const handleLoginLogout = () => {
+  //   setIsLoggedIn(false); // Set logged out state
+  //   navigate('/'); // Redirect to the home page after logout
+  // };
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn'); // Remove login state from localStorage
+    setIsLoggedIn(false); // Update the login state
+    navigate('/login'); // Redirect to the login page
   };
+  
 
   return (
     <nav className="navbar">
@@ -22,30 +31,64 @@ const Navbar = () => {
         </div>
       </div>
       <ul className="navbar-links">
-        <li
-          className={activeLink === 'home' ? 'active' : ''}
-          onClick={() => handleLinkClick('home')}
-        >
-          <i className="fas fa-home"></i> Home
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            <i className="fas fa-home"></i> Home
+          </NavLink>
         </li>
-        <li
-          className={activeLink === 'about' ? 'active' : ''}
-          onClick={() => handleLinkClick('about')}
-        >
-          <i className="fas fa-info-circle"></i> About Us
+        <li>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            <i className="fas fa-info-circle"></i> About Us
+          </NavLink>
         </li>
-        <li
-          className={activeLink === 'login' ? 'active' : ''}
-          onClick={() => handleLinkClick('login')}
-        >
-          <i className="fas fa-sign-in-alt"></i> Login
-        </li>
-        <li
-          className={activeLink === 'signup' ? 'active' : ''}
-          onClick={() => handleLinkClick('signup')}
-        >
-          <i className="fas fa-user-plus"></i> Signup
-        </li>
+
+        {/* Conditional links based on login state */}
+        {!isLoggedIn ? (
+          <>
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                <i className="fas fa-sign-in-alt"></i> Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                <i className="fas fa-user-plus"></i> Signup
+              </NavLink>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <NavLink
+                to="/categories"
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                <i className="fas fa-th-list"></i> Categories
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/logout"
+                className={({ isActive }) => (isActive ? 'active' : '')}
+                onClick={handleLogout}
+              >
+                <i className="fas fa-sign-out-alt"></i> Logout
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

@@ -1,59 +1,64 @@
 /* Container for the homepage */
 .home-container {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .home-image {
-    width: 100%;
-    height: 95%;
-    background-image: url('https://cdn.pixabay.com/photo/2015/06/10/13/23/clothesline-804812_640.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  
-  /* Overlay for the content */
-  .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin-top: 20%;
-  }
-  
-  .text-container {
-    color: #000;
-    font-size: 18px;
-  }
-  
-  .text-container h2 {
-    font-size: 36px;
-    font-weight: bold;
-  }
-  .text-container p {
-    font-size: 20px;
-  }
-  
-  .explore-button {
-    margin-top: 15px;
-    font-size: 20px;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: #ff6347;
-    color: white;
-    transition: background-color 0.3s;
-  }
-  
-  .explore-button:hover {
-    background-color: #ff4500; 
-  }
-  
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.carousel-container {
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.carousel img {
+  height: 80vh; 
+  object-fit: cover;
+}
+
+/* Overlay for text and button */
+.carousel-slide {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-text {
+  position: absolute;
+  top: 70%;
+  left: 2%;
+  transform: translateY(-50%); 
+  color: #000;
+  text-align: left; 
+  z-index: 2; 
+}
+
+.carousel-text h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+  font-weight: 900;
+}
+
+.carousel-text p {
+  font-size: 25px;
+  margin-bottom: 20px; 
+  font-weight: 600;
+}
+
+.explore-button {
+  font-size: 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #ff6347;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.explore-button:hover {
+  background-color: #ff4500;
+}

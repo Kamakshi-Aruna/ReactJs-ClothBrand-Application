@@ -1,59 +1,38 @@
 import React, { useState } from 'react';
-import './SignUpPage.css'; // Import the scoped CSS
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import './SignupPage.css';
 
-const SignUpPage = () => {
-  const [username, setUsername] = useState('');
+const SignUpPage = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const [isUserExist, setIsUserExist] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate function
 
-  // Dummy users data (In real applications, fetch from a server)
-  const existingUsers = [
-    { email: 'testuser@example.com', username: 'testuser' }
-  ];
-
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Check if the user already exists
-    const userExists = existingUsers.some(
-      (user) => user.email === email || user.username === username
-    );
-    if (userExists) {
-      setIsUserExist(true);
-      return;
-    }
+    // Check if the email already exists in the localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existingUser = users.find((user) => user.email === email);
 
-    // Check if passwords match
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
+    if (existingUser) {
+      setError('Email already exists. Please use a different email.');
+    } else {
+      // Add the new user to the localStorage
+      const newUser = { email, password };
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
 
-    // Perform the registration (e.g., save user to a server or database)
-    console.log('User Registered:', { username, email, password });
-    // Redirect to login or home page after successful registration
-    // In real use case, you can redirect using `navigate` from React Router.
-    alert('Registration successful!');
+      alert('Sign up successful!');
+      setIsLoggedIn(true); // Update the login state
+      navigate('/'); // Redirect to the home page after successful signup
+    }
   };
 
   return (
-    <div className="signup-page"> {/* Add a wrapper class for the signup page */}
+    <div className="signup-page">
       <h1>Sign Up Page</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-
+      <form onSubmit={handleSignUp}>
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -76,21 +55,9 @@ const SignUpPage = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        {isUserExist && <p style={{ color: 'red' }}>User already exists. Please login!</p>}
 
-        <button type="submit">Submit</button>
+        <button type="submit">Sign Up</button>
       </form>
 
       <p>
