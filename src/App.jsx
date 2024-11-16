@@ -5,6 +5,7 @@ import HomePage from './components/LandingPage/HomePage';
 import SignUpPage from './components/Authentication/SignupPage';
 import LoginPage from './components/Authentication/LoginPage';
 import CategoriesPage from './components/LandingPage/CategoriesPage';
+import AboutUsPage from './components/LandingPage/AboutUsPage'; // Import the About Us page
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,7 +14,7 @@ const App = () => {
     // Check if the user is logged in from localStorage
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
     if (storedLoginStatus === 'true') {
-      setIsLoggedIn(true); // Set login state if the user is logged in
+      setIsLoggedIn(true);
     }
   }, []);
 
@@ -23,12 +24,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-        {/* Conditional route for CategoriesPage */}
-        <Route
-          path="/categories"
-          element={isLoggedIn ? <CategoriesPage setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/login" />}
-        />
+        <Route path="/categories" element={isLoggedIn ? <CategoriesPage /> : <Navigate to="/categories" />} />
         <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/about" element={<AboutUsPage />} /> {/* Add About Us Route */}
       </Routes>
     </Router>
   );

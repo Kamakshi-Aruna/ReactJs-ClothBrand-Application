@@ -10,11 +10,11 @@
       },
       {
         "id": 2,
-        "name": "green Saree",
+        "name": "Green Saree",
         "category": "Sarees",
         "price": "$50.99",
         "image": "https://media.istockphoto.com/id/2047488376/photo/hand-weaving-silk-handloom-sarees-saree-with-golden-details-woman-wear-on-festival-ceremony.webp?a=1&b=1&s=612x612&w=0&k=20&c=k7gXkT21W1t1SjnFUji5xQ-gSnRlO6n5K6TtBGhxB6o=",
-        "rating": 4.0
+        "rating": 4.1
       },
       {
         "id": 3,
@@ -34,7 +34,7 @@
       },
       {
         "id": 5,
-        "name": "Graphic T-shirt",
+        "name": "White T-shirt",
         "category": "T-Shirts",
         "price": "$15.99",
         "image": "https://media.istockphoto.com/id/470314664/photo/white-t-shirt.jpg?s=612x612&w=0&k=20&c=2zjkupK4WAAYfS4-uqoFfWT70pPgDexNxyvFYx-t-Gg=",
@@ -54,31 +54,71 @@
         "category": "Kurtis",
         "price": "$35.99",
         "image": "https://media.istockphoto.com/id/1730254317/photo/pakistani-model-is-wearing-new-digital-print-dress.jpg?s=612x612&w=0&k=20&c=qxsJwMxGJohuBbBKD7iqChc-wbgewGLb85W58T3v4Bc=",
-        "rating": 4.5
+        "rating": 4.9
       },
       {
         "id": 8,
         "name": "Pink Saree",
-        "category": "Saree",
-        "price": "$35.99",
-        "image": "https://media.istockphoto.com/id/1189191589/photo/beautiful-smiling-indian-bride-welcoming.jpg?s=612x612&w=0&k=20&c=NGvwN5CHA14XqwLwocpelMooAOLk8MIgTL-2cT47InI=c=",
-        "rating": 4.5
+        "category": "Sarees",
+        "price": "$75.99",
+        "image": "https://media.istockphoto.com/id/1362095617/photo/beautiful-smiling-indian-bride-with-jewelry-in-studio-shot.jpg?s=612x612&w=0&k=20&c=vALhYmoOnfbn3tBN8uwgJnrn4nhlbDQebQt0VlKS9x4=",
+        "rating": 4.8
       },
       {
         "id": 9,
         "name": "Light_Green Saree",
-        "category": "Saree",
-        "price": "$35.99",
+        "category": "Sarees",
+        "price": "$15.99",
         "image": "https://media.istockphoto.com/id/1189190647/photo/beautiful-young-girl-posing-in-traditional-saree.jpg?s=612x612&w=0&k=20&c=bdI2BCX6XtJFy1lgVft_UE27eFT26CH0noEZEwFc8Eo=",
-        "rating": 4.5
+        "rating": 1.5
       },
       {
         "id": 10,
-        "name": "Green Kurti",
+        "name": "Orange T-Shirt",
+        "category": "T-Shirts",
+        "price": "$45.99",
+        "image": "https://media.istockphoto.com/id/2153383923/photo/happy-mature-man-with-arms-crossed-and-looking-at-camera-while-standing-against-white.jpg?s=612x612&w=0&k=20&c=PSO4MYD35VX_y7RXgpVoiKZqt7Aq2ol36peusc_Je9Q=",
+        "rating": 2.2
+      },
+      {
+        "id": 11,
+        "name": "Yellow T-Shirt",
+        "category": "T-Shirts",
+        "price": "$23.99",
+        "image": "https://media.istockphoto.com/id/2158258050/photo/portrait-of-young-woman-wear-trendy-smart-casual-outfit-isolated-on-yellow-background-stock.jpg?s=612x612&w=0&k=20&c=UdpFPZYStceDwFkjLXXZYANbgHr9vWNtETs2eYBTngI=",
+        "rating": 2.5
+      },
+      {
+        "id": 12,
+        "name": "Black T-Shirt",
+        "category": "T-Shirts",
+        "price": "$17.99",
+        "image": "https://media.istockphoto.com/id/483960103/photo/blank-black-t-shirt-front-with-clipping-path.jpg?s=612x612&w=0&k=20&c=d8qlXILMYhugXGw6zX7Jer2SLPrLPORfsDsfRDWc-50=",
+        "rating": 4.3
+      },
+      {
+        "id": 13,
+        "name": "Blue Saree",
+        "category": "Sarees",
+        "price": "$55.99",
+        "image": "https://media.istockphoto.com/id/1166369288/photo/indian-corporate-woman-stock-photos.jpg?s=612x612&w=0&k=20&c=XLyXYsl7DHGWaubKnegaPYM_cilaX_BdnFjznTMTy4o=",
+        "rating": 4.7
+      },
+      {
+        "id": 14,
+        "name": "White Saree",
+        "category": "Sarees",
+        "price": "$39.99",
+        "image": "https://media.istockphoto.com/id/1342254465/photo/portrait-of-beautiful-indian-bengali-female-woman-in-red-and-white-traditional-ethnic-saree.jpg?s=612x612&w=0&k=20&c=W0j8LinLPAqvtsCEsI11czA1-lDbP3yYSApazveDjJ8=",
+        "rating": 3.4
+      },
+      {
+        "id": 15,
+        "name": "Yellow Kurti",
         "category": "Kurtis",
-        "price": "$35.99",
-        "image": "https://media.istockphoto.com/id/1730254317/photo/pakistani-model-is-wearing-new-digital-print-dress.jpg?s=612x612&w=0&k=20&c=qxsJwMxGJohuBbBKD7iqChc-wbgewGLb85W58T3v4Bc=",
-        "rating": 4.5
+        "price": "$14.99",
+        "image": "https://media.istockphoto.com/id/1220925030/photo/young-woman-in-a-flowing-yellow-churidhar-with-her-hands-on-her-wrist-looking-ahead.jpg?s=612x612&w=0&k=20&c=m2Jwmibk_nJCOl-gAfkQjkE8d6M0dIn0QGGpI5PPAj0=",
+        "rating": 4.2
       }
     ]
   }

@@ -1,4 +1,3 @@
-/* Container for the homepage */
 .home-container {
   width: 100%;
   height: 100vh;
@@ -19,7 +18,6 @@
   object-fit: cover;
 }
 
-/* Overlay for text and button */
 .carousel-slide {
   position: relative;
   width: 100%;

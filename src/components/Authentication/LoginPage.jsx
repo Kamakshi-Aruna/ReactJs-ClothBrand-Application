@@ -1,36 +1,16 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 const LoginPage = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize navigate function
-
-//   const handleLogin = (e) => {
-//     e.preventDefault();
-
-//     // Get the stored users from localStorage
-//     const users = JSON.parse(localStorage.getItem('users')) || [];
-
-//     // Find the user that matches the email and password
-//     const user = users.find(
-//       (user) => user.email === email && user.password === password
-//     );
-
-//     if (user) {
-//       alert('Login Successful!');
-//       setIsLoggedIn(true); // Update the login state
-//       navigate('/'); // Redirect to the home page after successful login
-//     } else {
-//       setError('Invalid email or password');
-//     }
-//   };
+  const navigate = useNavigate(); 
 
 
-const handleLogin = (e) => {
-    e.preventDefault();
+    const handleLogin = (e) => {
+         e.preventDefault();
   
     // Get the stored users from localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -42,9 +22,9 @@ const handleLogin = (e) => {
   
     if (user) {
       alert('Login Successful!');
-      setIsLoggedIn(true); // Update the login state
-      localStorage.setItem('isLoggedIn', true); // Store login state in localStorage
-      navigate('/'); // Redirect to the home page after successful login
+      setIsLoggedIn(true); 
+      localStorage.setItem('isLoggedIn', true);
+      navigate('/');
     } else {
       setError('Invalid email or password');
     }

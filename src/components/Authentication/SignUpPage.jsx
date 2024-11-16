@@ -1,45 +1,86 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './SignupPage.css';
 
 const SignUpPage = ({ setIsLoggedIn }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize navigate function
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    error: '',
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
 
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Check if the email already exists in the localStorage
+    // Reset error messages
+    setFormData((prevData) => ({ ...prevData, error: '' }));
+
+    const { username, email, password, confirmPassword } = formData;
+
+    // Password validation
+    if (password !== confirmPassword) {
+      setFormData((prevData) => ({
+        ...prevData,
+        error: 'Passwords do not match.',
+      }));
+      return;
+    }
+
+    // Check if the email already exists in localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const existingUser = users.find((user) => user.email === email);
 
     if (existingUser) {
-      setError('Email already exists. Please use a different email.');
+      setFormData((prevData) => ({
+        ...prevData,
+        error: 'Email already exists. Please use a different email.',
+      }));
     } else {
-      // Add the new user to the localStorage
-      const newUser = { email, password };
+      // Add the new user to localStorage
+      const newUser = { username, email, password };
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
 
       alert('Sign up successful!');
-      setIsLoggedIn(true); // Update the login state
-      navigate('/'); // Redirect to the home page after successful signup
+      setIsLoggedIn(true);
+      navigate('/');
     }
   };
 
   return (
     <div className="signup-page">
-      <h1>Sign Up Page</h1>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSignUp}>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         <div>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
             required
           />
         </div>
@@ -49,13 +90,24 @@ const SignUpPage = ({ setIsLoggedIn }) => {
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
         </div>
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {formData.error && <p style={{ color: 'red' }}>{formData.error}</p>}
 
         <button type="submit">Sign Up</button>
       </form>

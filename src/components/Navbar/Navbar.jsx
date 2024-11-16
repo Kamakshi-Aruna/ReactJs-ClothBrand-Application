@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'; 
 import './Navbar.css';
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
-  const navigate = useNavigate(); // Get the navigate function
-
-  // const handleLoginLogout = () => {
-  //   setIsLoggedIn(false); // Set logged out state
-  //   navigate('/'); // Redirect to the home page after logout
-  // };
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn'); // Remove login state from localStorage
-    setIsLoggedIn(false); // Update the login state
-    navigate('/login'); // Redirect to the login page
+    localStorage.removeItem('isLoggedIn'); 
+    setIsLoggedIn(false); 
+    navigate('/'); 
   };
-  
+
+  useEffect(() => {
+    // Sync login state with localStorage
+    const loggedIn = localStorage.getItem('isLoggedIn');
+    if (loggedIn && !isLoggedIn) {
+      setIsLoggedIn(true);
+    }
+  }, [isLoggedIn, setIsLoggedIn]);
 
   return (
     <nav className="navbar">
@@ -80,7 +82,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
             </li>
             <li>
               <NavLink
-                to="/logout"
+                to="/"
                 className={({ isActive }) => (isActive ? 'active' : '')}
                 onClick={handleLogout}
               >
