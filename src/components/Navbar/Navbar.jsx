@@ -25,12 +25,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
         <div className="navbar-logo">
           <i className="fas fa-tshirt"></i> Clothing Brand
         </div>
-        <div className="navbar-search">
-          <input type="text" placeholder="Search clothes..." />
-          <button className="search-icon">
-            <i className="fas fa-search"></i>
-          </button>
-        </div>
       </div>
       <ul className="navbar-links">
         <li>

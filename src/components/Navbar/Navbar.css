@@ -26,41 +26,6 @@
 .navbar-logo i {
   margin-right: 8px; 
 }
-.navbar-search {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.navbar-search input {
-  padding: 8px 15px;
-  padding-right: 40px; 
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 220px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.navbar-search input:focus {
-  outline: none; 
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.navbar-search .search-icon {
-  position: absolute;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #555;
-  font-size: 16px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.navbar-search .search-icon:hover {
-  color: #007bff; 
-}
 .navbar-links {
   list-style-type: none;
   display: flex;
@@ -102,3 +67,4 @@
 .navbar-links li a.active i {
   color: #0056b3; 
 }
+
